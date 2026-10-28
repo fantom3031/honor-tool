@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="module_description">Модульный набор хуков для прошивки Honor MagicOS. Хуки включаются по отдельности в приложении.</string>
+
+    <!-- Общие действия -->
+    <string name="action_back">Назад</string>
+    <string name="action_cancel">Отмена</string>
+    <string name="action_apply">Применить</string>
+    <string name="action_reset">Сбросить</string>
+    <string name="action_reset_all">Сбросить всё</string>
+    <string name="action_clear">Очистить</string>
+    <string name="action_force_stop">Закрыть приложение (force stop)</string>
+
+    <!-- Список приложений -->
+    <string name="apps_section">Приложения</string>
+    <string name="module_active">Модуль активен</string>
+    <string name="module_inactive">Модуль не активирован</string>
+    <string name="module_active_details">%1$s · Xposed API v%2$d</string>
+    <string name="module_inactive_hint">Включите модуль в Vector / LSPosed и перезагрузите устройство</string>
+    <string name="prefs_unavailable_title">Настройки недоступны хукам</string>
+    <string name="prefs_unavailable_text">Не удалось открыть файл настроек в режиме world-readable. Активируйте модуль в Vector / LSPosed и перезапустите приложение.</string>
+    <string name="scope_missing_title">Пакеты вне области действия</string>
+    <string name="scope_missing_text">Для этих приложений есть твики, но они не перечислены в app/module-scope.txt, поэтому LSPosed не предложит их при выборе:\n%1$s</string>
+    <string name="scope_checking">Проверка scope в менеджере Xposed…</string>
+    <string name="scope_all_active_title">Все приложения в scope</string>
+    <string name="scope_all_active_text">Все поддерживаемые приложения (%1$d) отмечены в области действия Vector / LSPosed</string>
+    <string name="scope_missing_collapsed_title">Не в scope (%1$d)</string>
+    <string name="scope_missing_in_manager_title">Приложения не в scope</string>
+    <string name="scope_missing_in_manager_text">Следующие приложения не отмечены в области действия (scope) модуля в менеджере Vector / LSPosed:\n%1$s\n\nХуки для них применяться не будут, пока вы не отметите их в менеджере.</string>
+    <string name="scope_root_required_title">Проверка scope Xposed</string>
+    <string name="scope_root_required_text">Для проверки области действия (scope) требуется Root-доступ к конфигурации Vector / LSPosed.</string>
+    <string name="action_open_xposed_manager">Открыть менеджер</string>
+    <string name="action_check_scope">Проверить через Root</string>
+    <string name="scope_badge_in_scope">В scope</string>
+    <string name="scope_badge_not_in_scope">Не в scope</string>
+    <string name="xposed_manager_not_found">Менеджер Vector / LSPosed не найден</string>
+    <string name="no_tweaks_title">Твиков пока нет</string>
+    <string name="no_tweaks_text">Добавьте хук в hooks/HookModules.kt и пакет приложения в app/module-scope.txt — приложение появится в этом списке. Инструкция: docs/WRITING_HOOKS.md</string>
+    <plurals name="tweak_count">
+        <item quantity="one">%d твик</item>
+        <item quantity="few">%d твика</item>
+        <item quantity="many">%d твиков</item>
+        <item quantity="other">%d твика</item>
+    </plurals>
+    <string name="app_not_installed">%1$s · не установлено</string>
+    <string name="footer_summary">v%1$s · твиков: %2$d</string>
+    <string name="package_system_framework">Системный фреймворк</string>
+    <string name="package_all_apps">Все приложения</string>
+
+    <!-- Твики одного приложения -->
+    <string name="soft_reboot_needed">Требуется мягкая перезагрузка</string>
+    <string name="tap_to_configure">Нажмите, чтобы настроить</string>
+
+    <!-- Хуки -->
+    <string name="hook_camera_features_title">Изменение доступных фич</string>
+    <string name="hook_camera_features_description">Принудительно включает или выключает фичи из FeatureConfig прошивки</string>
+    <string name="hook_camera_horizon_eis_title">Стабилизация по горизонту</string>
+    <string name="hook_camera_horizon_eis_description">Режим «Стандартная» в видео запускает выравнивание горизонта с основной камеры. Экспериментально: прошивка этот режим не предлагает</string>
+    <string name="hook_camera_zeiss_title">Возможности Zeiss</string>
+    <string name="hook_camera_zeiss_description">Логотип в водяном знаке-рамке, кнопка цвета T* и формулы портрета. Нужные фичи твик включает сам</string>
+    <string name="hook_honor_transparent_shade_title">Прозрачная шторка уведомлений</string>
+    <string name="hook_honor_transparent_shade_description">Убирает серый затемняющий фон за шторкой, чтобы был виден рабочий стол</string>
+    <string name="hook_soft_reboot_title">Софт-ребут в меню питания</string>
+    <string name="hook_soft_reboot_description">Кнопка «Перезагрузка» в меню питания перезапускает только system_server (~10 сек вместо ~60). Все хуки LSPosed применяются заново. Требуется Root</string>
+    <string name="hook_charging_info_title">Информация о зарядке на локскрине</string>
+    <string name="hook_charging_info_description">Показывает мощность (W), ток (mA), напряжение (V) и температуру батареи (°C) при зарядке на заблокированном экране</string>
+    <string name="hook_settings_dividers_title">Скрыть разделители списков</string>
+    <string name="hook_settings_dividers_description">Убирает линии-разделители между пунктами в списках Настроек</string>
+    <string name="hook_about_device_custom_title">О телефоне: свои значения</string>
+    <string name="hook_about_device_custom_description">Подмена текстовых значений на экране «О телефоне»: модель, прошивка, IMEI и т.д. Значения задаются в настройках твика</string>
+    <string name="about_field_model">Модель устройства</string>
+    <string name="about_field_firmware">Версия прошивки</string>
+    <string name="about_field_baseband">Версия модема</string>
+    <string name="about_field_kernel">Версия ядра</string>
+    <string name="about_field_build">Номер сборки</string>
+    <string name="about_field_magic">Версия MagicOS</string>
+    <string name="about_field_cpu">Процессор</string>
+    <string name="about_field_ram">ОЗУ</string>
+    <string name="about_field_storage">ПЗУ (накопитель)</string>
+    <string name="about_field_imei">IMEI</string>
+    <string name="about_field_meid">MEID</string>
+    <string name="about_field_name">Имя устройства</string>
+    <string name="about_field_selinux">Статус SELinux</string>
+    <string name="about_device_custom_hint">Оставь пустым — оригинальное значение. Изменения применяются после повторного открытия «О телефоне».</string>
+    <string name="hook_media_volume_step_title">Шаг громкости медиа 2%</string>
+    <string name="hook_media_volume_step_description">Громкость медиа меняется шагами по 2% (50 уровней) вместо штатного количества</string>
+    <!-- Картинка «О телефоне» -->
+    <string name="hook_about_phone_video_title">Анимация в «О телефоне»</string>
+    <string name="hook_about_phone_video_description">Заменяет анимацию в карточке «О телефоне»: своё видео или картинка на весь баннер</string>
+    <string name="about_video_mode_video">Своё видео</string>
+    <string name="about_video_mode_photo">Картинка на весь баннер</string>
+    <string name="about_video_mode_doom">DOOM</string>
+    <string name="about_doom_title">DOOM в карточке «О телефоне»</string>
+    <string name="about_doom_help">Оригинальный DOOM (PureDOOM, shareware-версия doom1.wad) работает нативно и заменяет анимацию карточки. Движок запускается, пока карточка на экране, и останавливается при уходе с него. Настройка применяется после повторного открытия «О телефоне».</string>
+    <string name="about_doom_controls_title">Управление</string>
+    <string name="about_doom_ctl_move">D-pad (слева) — движение и стрейф</string>
+    <string name="about_doom_ctl_turn">↺ ↻ (справа) или свайп — поворот</string>
+    <string name="about_doom_ctl_fire">FIRE — стрельба · в меню — Enter</string>
+    <string name="about_doom_ctl_use">USE — открыть дверь · в меню — Esc</string>
+    <string name="about_doom_ctl_weapon">WPN — смена оружия</string>
+    <string name="about_doom_ctl_volume">Vol+ / Vol- — огонь / действие · долгий Vol- — меню</string>
+    <string name="hook_imei_privacy_title">Скрытие IMEI в настройках</string>
+    <string name="hook_launcher_card_folder_log_title">Диагностика больших папок (только лог)</string>
+    <string name="hook_launcher_card_folder_log_description">Пишет в logcat (тег HonorToolFolder) сетку и число превью-слотов больших папок. Ничего не меняет</string>
+    <string name="hook_imei_privacy_description">Заменяет IMEI, MEID и идентификатор устройства на экранах «О телефоне» и статуса SIM на 15 нулей. Влияет только на отображение в приложении Настроек</string>
+    <string name="about_video_current">Текущее видео</string>
+    <string name="about_video_none">Не выбрано — используется штатная анимация</string>
+    <string name="about_video_pick">Выбрать видео</string>
+    <string name="about_video_size_kb">Размер: %1$d КБ</string>
+    <string name="about_video_saved">Видео сохранено</string>
+    <string name="about_video_save_failed">Не удалось сохранить видео</string>
+    <string name="about_video_help">Видео проигрывается в квадратном окне 360×360 и масштабируется автоматически, поэтому для точного результата заранее подготовьте квадратное видео. Можно положить файл вручную: adb push файл.mp4 /sdcard/Download/honortool/honortool_anim.mp4. Изменения применяются без перезагрузки.</string>
+    <string name="about_photo_banner_title">Картинка баннера</string>
+    <string name="about_photo_banner_help">Штатное видео скрывается, ваша картинка растягивается на всю ширину карточки (обрезка 720×360). Картинку можно менять без перезагрузки — снова откройте экран «О телефоне».</string>
+    <string name="about_photo_banner_pick">Выбрать картинку</string>
+    <string name="honor_shade_screen_title">Прозрачная шторка</string>
+    <string name="honor_shade_opacity_label">Непрозрачность фона шторки</string>
+    <string name="honor_shade_opacity_help">0% делает фон шторки полностью прозрачным, 100% — оригинальный серый в полную силу. Изменения применяются без перезагрузки.</string>
+    <string name="how_it_works">Как это работает</string>
+    <string name="image_saved">Готово. Закройте «Настройки» (force stop), чтобы увидеть картинку</string>
+    <string name="image_save_failed">Не удалось сохранить картинку</string>
+
+    <!-- Обрезка -->
+    <string name="crop_title">Обрезка под %1$d×%2$d</string>
+    <string name="crop_hint">Один палец — сдвиг, два пальца или ползунок — масштаб. В карточке появится ровно то, что видно в рамке.</string>
+    <string name="crop_failed">Картинку не удалось открыть</string>
+
+    <!-- Фичи камеры -->
+    <string name="camera_features_screen_title">Фичи камеры</string>
+    <string name="camera_features_search">Поиск фичи</string>
+    <string name="camera_features_summary">Фич найдено: %1$d</string>
+    <string name="camera_features_summary_changed">Фич найдено: %1$d · изменено: %2$d</string>
+    <string name="camera_features_hint">Значения читаются из прошивки. FeatureManager зависит ещё и от платформы, поэтому часть его значений вне камеры определить нельзя. После изменения закройте камеру (force stop) — переопределения применяются при её запуске.</string>
+    <string name="camera_features_empty">Ничего не найдено</string>
+    <string name="camera_features_filter_all">Все (%1$d)</string>
+    <string name="camera_features_filter_source">%1$s (%2$d)</string>
+    <string name="camera_features_source_missing">Не найдено: %1$s</string>
+    <string name="camera_features_error_title">Не удалось прочитать конфигурацию</string>
+    <string name="camera_features_product">ro.product.name = %1$s</string>
+    <string name="camera_error_not_installed">Приложение камеры (%1$s) не найдено</string>
+    <string name="camera_error_apk">Не удалось прочитать APK камеры: %1$s</string>
+    <string name="camera_error_class">Класс конфигурации не найден. Искали: %1$s</string>
+    <string name="feature_default_value">по умолчанию: %1$s</string>
+    <string name="feature_default_args">по умолчанию: зависит от аргументов</string>
+    <string name="feature_default_args_overloads">по умолчанию: зависит от аргументов · перегрузок: %1$d</string>
+    <string name="feature_default_unknown">по умолчанию: не удалось определить</string>
+    <string name="feature_override">переопределено: %1$s</string>
+    <string name="feature_value_menu">Значение фичи</string>
+    <string name="feature_value_default">По умолчанию</string>
+    <string name="reset_features_title">Сбросить фичи?</string>
+    <string name="reset_features_text">%1$d изменённых фич вернутся к значениям из прошивки.</string>
+    <string name="force_stop_done">%1$s закрыто</string>
+    <string name="force_stop_failed">Не удалось закрыть — открываю информацию о приложении</string>
+
+    <!-- Origin Player Island Apps -->
+</resources>

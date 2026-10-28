@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="status_bar_seconds_title">Секунды в часах статус-бара</string>
+    <string name="status_bar_seconds_description">Обновление каждую секунду при включённом экране. Системный формат 12/24 часа. После переключения перезапустите SystemUI.</string>
+    <string name="screenshot_watermark_title">Водяной знак на скриншотах</string>
+    <string name="screenshot_watermark_description">Текст с цветными строками или PNG-картинка в выбранном углу системных скриншотов</string>
+    <string name="recents_grid_title">Сетка недавних (не рекомендуется)</string>
+    <string name="recents_grid_description">Экспериментально: вид и поведение нестабильны, работает некорректно. Не рекомендуется к использованию</string>
+    <string name="aod_display_time_title">Длительность показа AOD</string>
+    <string name="aod_display_time_description">Сколько секунд экран Always-On Display остаётся включённым после пробуждения</string>
+    <string name="aod_media_card_title">Карточка «что играет» на AOD</string>
+    <string name="aod_media_card_description">Иконка приложения, название трека и исполнитель на экране Always-On Display во время воспроизведения</string>
+    <string name="aod_brightness_title">Яркость AOD</string>
+    <string name="aod_brightness_description">Масштаб яркости Always-On Display: тусклее для экономии батареи или ярче</string>
+    <string name="selected_folders_title">Слоты выбранных папок</string>
+    <string name="selected_folders_description">Все слоты под приложения: выбор папок по ID или все папки</string>
+    <string name="app_name" translatable="false">Honor Tool</string>
+    <string name="module_description">A modular set of hooks for Honor MagicOS firmware. Hooks are toggled individually inside the app.</string>
+
+    <!-- Common actions -->
+    <string name="action_back">Back</string>
+    <string name="action_cancel">Cancel</string>
+    <string name="action_apply">Apply</string>
+    <string name="action_reset">Reset</string>
+    <string name="action_reset_all">Reset all</string>
+    <string name="action_clear">Clear</string>
+    <string name="action_force_stop">Force stop the app</string>
+
+    <!-- Apps list -->
+    <string name="apps_section">Applications</string>
+    <string name="module_active">Module is active</string>
+    <string name="module_inactive">Module is not active</string>
+    <string name="module_active_details">%1$s · Xposed API v%2$d</string>
+    <string name="module_inactive_hint">Enable the module in Vector / LSPosed and reboot the device</string>
+    <string name="prefs_unavailable_title">Settings are not readable by hooks</string>
+    <string name="prefs_unavailable_text">The settings file could not be opened in world-readable mode. Activate the module in Vector / LSPosed and restart the app.</string>
+    <string name="scope_missing_title">Packages outside the module scope</string>
+    <string name="scope_missing_text">These apps have tweaks but are missing from app/module-scope.txt, so LSPosed will not offer them:\n%1$s</string>
+    <string name="scope_checking">Checking Xposed manager scope…</string>
+    <string name="scope_all_active_title">All apps in scope</string>
+    <string name="scope_all_active_text">All supported apps (%1$d) are enabled in Vector / LSPosed scope</string>
+    <string name="scope_missing_collapsed_title">Not in scope (%1$d)</string>
+    <string name="scope_missing_in_manager_title">Apps not in scope</string>
+    <string name="scope_missing_in_manager_text">The following apps are not checked in the module\'s scope in Vector / LSPosed:\n%1$s\n\nHooks for them will not work until enabled in the manager.</string>
+    <string name="scope_root_required_title">Xposed scope check</string>
+    <string name="scope_root_required_text">Root access is required to check Vector / LSPosed scope configuration.</string>
+    <string name="action_open_xposed_manager">Open Manager</string>
+    <string name="action_check_scope">Check via Root</string>
+    <string name="scope_badge_in_scope">In scope</string>
+    <string name="scope_badge_not_in_scope">Not in scope</string>
+    <string name="xposed_manager_not_found">Vector / LSPosed manager not found</string>
+    <string name="no_tweaks_title">No tweaks yet</string>
+    <string name="no_tweaks_text">Add a hook to hooks/HookModules.kt and the app package to app/module-scope.txt — the app will show up in this list. See docs/WRITING_HOOKS.md</string>
+    <plurals name="tweak_count">
+        <item quantity="one">%d tweak</item>
+        <item quantity="other">%d tweaks</item>
+    </plurals>
+    <string name="app_not_installed">%1$s · not installed</string>
+    <string name="footer_summary">v%1$s · tweaks: %2$d</string>
+    <string name="package_system_framework">System framework</string>
+    <string name="package_all_apps">All applications</string>
+
+    <!-- Tweaks of one app -->
+    <string name="soft_reboot_needed">Soft reboot required</string>
+    <string name="tap_to_configure">Tap to configure</string>
+
+    <!-- Hooks -->
+    <string name="hook_camera_features_title">Available features</string>
+    <string name="hook_camera_features_description">Force-enables or disables features from the firmware FeatureConfig</string>
+    <string name="hook_camera_horizon_eis_title">Horizon stabilization</string>
+    <string name="hook_camera_horizon_eis_description">Standard stabilization in video runs the horizon-levelling mode on the main camera. Experimental: the firmware does not offer this mode</string>
+    <string name="hook_camera_zeiss_title">Zeiss features</string>
+    <string name="hook_camera_zeiss_description">The logo in the frame watermark, the T* colour button and the portrait formulas. The tweak sets the feature flags itself</string>
+    <string name="hook_honor_transparent_shade_title">Transparent notification shade</string>
+    <string name="hook_honor_transparent_shade_description">Removes the grey scrim behind the notification shade so the desktop stays visible</string>
+    <string name="hook_soft_reboot_title">Soft reboot in power menu</string>
+    <string name="hook_soft_reboot_description">The Restart button in the power menu restarts system_server only (~10 s instead of ~60 s). All LSPosed hooks are re-applied. Requires root</string>
+    <string name="hook_charging_info_title">Charging info on lockscreen</string>
+    <string name="hook_charging_info_description">Displays real-time wattage (W), current (mA), voltage (V) and battery temperature (°C) while charging on the lock screen</string>
+    <string name="hook_settings_dividers_title">Hide list dividers</string>
+    <string name="hook_settings_dividers_description">Removes the separator lines between items in Settings lists</string>
+    <string name="hook_about_device_custom_title">About device: custom values</string>
+    <string name="hook_about_device_custom_description">Replace text values on the About phone screen: model, firmware, IMEI, etc. Set values in the tweak settings</string>
+    <string name="about_field_model">Device model</string>
+    <string name="about_field_firmware">Firmware version</string>
+    <string name="about_field_baseband">Baseband version</string>
+    <string name="about_field_kernel">Kernel version</string>
+    <string name="about_field_build">Build number</string>
+    <string name="about_field_magic">MagicOS version</string>
+    <string name="about_field_cpu">Processor</string>
+    <string name="about_field_ram">RAM</string>
+    <string name="about_field_storage">Storage</string>
+    <string name="about_field_imei">IMEI</string>
+    <string name="about_field_meid">MEID</string>
+    <string name="about_field_name">Device name</string>
+    <string name="about_field_selinux">SELinux status</string>
+    <string name="about_device_custom_hint">Leave empty to keep the original value. Changes apply after reopening the About phone screen.</string>
+    <string name="hook_media_volume_step_title">Media volume step 2%</string>
+    <string name="hook_media_volume_step_description">Media volume changes in 2% steps (50 levels) instead of the stock step count</string>
+    <!-- About phone image -->
+    <string name="hook_about_phone_video_title">About phone animation</string>
+    <string name="hook_about_phone_video_description">Replaces the animation in the About phone card: your own video or a picture stretched to the full banner</string>
+    <string name="about_video_mode_video">Custom video</string>
+    <string name="about_video_mode_photo">Picture on the full banner</string>
+    <string name="about_video_mode_doom">DOOM</string>
+    <string name="about_doom_title">DOOM in the About phone card</string>
+    <string name="about_doom_help">The original DOOM (PureDOOM, shareware doom1.wad) runs natively and replaces the card animation. The engine starts while the card is on screen and stops when you leave it. The setting applies after reopening the About phone screen.</string>
+    <string name="about_doom_controls_title">Controls</string>
+    <string name="about_doom_ctl_move">D-pad (left) — move and strafe</string>
+    <string name="about_doom_ctl_turn">↺ ↻ buttons (right) or swipe — turn</string>
+    <string name="about_doom_ctl_fire">FIRE — shoot · in menu: Enter</string>
+    <string name="about_doom_ctl_use">USE — open doors · in menu: Esc</string>
+    <string name="about_doom_ctl_weapon">WPN — switch weapon</string>
+    <string name="about_doom_ctl_volume">Vol+ / Vol- — shoot / use · hold Vol- — menu</string>
+    <string name="hook_imei_privacy_title">Hide IMEI in Settings</string>
+    <string name="hook_launcher_card_folder_log_title">Card folder diagnostics (log only)</string>
+    <string name="hook_launcher_card_folder_log_description">Logs big-folder grid and preview slot values to logcat tag HonorToolFolder. Does not change anything</string>
+    <string name="hook_imei_privacy_description">Replaces IMEI, MEID and device ID shown on the About phone and SIM status screens with 15 zeros. Only affects the Settings app display</string>
+    <string name="about_video_current">Current video</string>
+    <string name="about_video_none">Not selected — the stock animation is used</string>
+    <string name="about_video_pick">Choose video</string>
+    <string name="about_video_size_kb">Size: %1$d KB</string>
+    <string name="about_video_saved">Video saved</string>
+    <string name="about_video_save_failed">Could not save the video</string>
+    <string name="about_video_help">The video plays in a square 360×360 view and is scaled automatically, so for a perfect fit prepare a square video beforehand. You can also push a file manually: adb push file.mp4 /sdcard/Download/honortool/honortool_anim.mp4. Changes apply without reboot.</string>
+    <string name="about_photo_banner_title">Banner picture</string>
+    <string name="about_photo_banner_help">The stock video is hidden and your picture is stretched to the full card width (720×360 crop). The picture can be changed without reboot — reopen the About phone screen.</string>
+    <string name="about_photo_banner_pick">Choose picture</string>
+    <string name="honor_shade_screen_title">Transparent shade</string>
+    <string name="honor_shade_opacity_label">Shade background opacity</string>
+    <string name="honor_shade_opacity_help">0% makes the shade background fully transparent, 100% keeps the original dark grey at full strength. Changes apply without reboot.</string>
+    <string name="how_it_works">How it works</string>
+    <string name="image_saved">Done. Force stop Settings to see the picture</string>
+    <string name="image_save_failed">Could not save the picture</string>
+
+    <!-- Crop -->
+    <string name="crop_title">Crop to %1$d×%2$d</string>
+    <string name="crop_hint">One finger to move, two fingers or the slider to zoom. The card will show exactly what is inside the frame.</string>
+    <string name="crop_failed">Could not open the picture</string>
+
+    <!-- Camera features -->
+    <string name="camera_features_screen_title">Camera features</string>
+    <string name="camera_features_search">Search a feature</string>
+    <string name="camera_features_summary">Features found: %1$d</string>
+    <string name="camera_features_summary_changed">Features found: %1$d · changed: %2$d</string>
+    <string name="camera_features_hint">Values are read from the firmware. FeatureManager also depends on the platform, so some of its defaults cannot be determined outside the camera. After changing anything force stop the camera — overrides are applied when it starts.</string>
+    <string name="camera_features_empty">Nothing found</string>
+    <string name="camera_features_filter_all">All (%1$d)</string>
+    <string name="camera_features_filter_source">%1$s (%2$d)</string>
+    <string name="camera_features_source_missing">Not found: %1$s</string>
+    <string name="camera_features_error_title">Could not read the configuration</string>
+    <string name="camera_features_product">ro.product.name = %1$s</string>
+    <string name="camera_error_not_installed">The camera app (%1$s) is not installed</string>
+    <string name="camera_error_apk">Could not read the camera APK: %1$s</string>
+    <string name="camera_error_class">Configuration class not found. Looked for: %1$s</string>
+    <string name="feature_default_value">default: %1$s</string>
+    <string name="feature_default_args">default: depends on the arguments</string>
+    <string name="feature_default_args_overloads">default: depends on the arguments · overloads: %1$d</string>
+    <string name="feature_default_unknown">default: could not be determined</string>
+    <string name="feature_override">overridden: %1$s</string>
+    <string name="feature_value_menu">Feature value</string>
+    <string name="feature_value_default">Default</string>
+    <string name="reset_features_title">Reset the features?</string>
+    <string name="reset_features_text">%1$d overridden features will go back to the firmware values.</string>
+    <string name="force_stop_done">%1$s has been stopped</string>
+    <string name="force_stop_failed">Could not force stop — opening the app info instead</string>
+
+    <!-- Origin Player Island Apps -->
+</resources>
