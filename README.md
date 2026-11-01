@@ -1,6 +1,6 @@
 # Honor Tool
 
-Модуль LSPosed (LibXposed API 102) для смартфонов Honor на MagicOS 8 / Android 14.
+LSPosed module (LibXposed API 102) for Honor smartphones running MagicOS 8 / Android 14.
 
 <p>
   <img src="https://img.shields.io/badge/LSPosed-LibXposed%20API%20102-blue" alt="LSPosed LibXposed API 102">
@@ -8,75 +8,80 @@
   <img src="https://img.shields.io/badge/license-GPL--3.0-lightgrey" alt="License">
 </p>
 
-## Возможности
+[English](README.md) | [Русский](README_RU.md)
 
-| Твик | Описание |
+## Features
+
+| Tweak | Description |
 |---|---|
-| **Секунды в статус-баре** | Часы показывают `HH:mm:ss`, обновление каждую секунду |
-| **Водяной знак на скриншотах** | Текст (цветной построчно) или PNG-картинка в выбранном углу; изменения применяются сразу |
-| **Карточка «что играет» на AOD** | Обложка, название, исполнитель, прогресс-бар и время трека на экране Always-On Display |
-| **Длительность AOD** | Время показа Always-On Display от 5 до 600 секунд |
-| **Яркость AOD** | Режимы: авто / максимум / штатная / тусклая; применяется сразу |
-| **Прозрачная шторка** | Убирает серый фон панели уведомлений |
-| **Информация о зарядке на локскрине** | Ватты, ток, напряжение и температура батареи внизу экрана блокировки |
-| **Свои значения «О телефоне»** | Подмена модели, прошивки, IMEI и других полей; многострочный ввод |
-| **Анимация «О телефоне»** | Своё видео, фото или DOOM в карточке «О телефоне» |
-| **Папки по ID** | Выбор карточных папок, где каждый слот открывает приложение напрямую |
-| **Очистка ОЗУ** | Принудительная остановка сторонних и предустановленных приложений (root) |
+| **Status bar seconds** | Clock shows `HH:mm:ss`, updated every second |
+| **Screenshot watermark** | Text (per-line colors) or PNG image in a chosen corner; changes apply instantly |
+| **AOD media card** | Album art, title, artist, progress bar and track time on the Always-On Display |
+| **AOD display time** | How long the Always-On Display stays on, 5 to 600 seconds |
+| **AOD brightness** | Modes: auto / maximum / stock / dim; applies instantly |
+| **Transparent shade** | Removes the grey scrim behind the notification panel |
+| **Lockscreen charging info** | Watts, current, voltage and battery temperature at the bottom of the lock screen |
+| **Custom About phone values** | Replace model, firmware, IMEI and other fields; multi-line input |
+| **About phone animation** | Your own video, photo or DOOM in the About phone card |
+| **Folders by ID** | Pick card folders where every slot launches an app directly |
+| **RAM cleanup** | Force-stops user and preinstalled apps (root) |
 
-## Требования
+## Requirements
 
-- Смартфон Honor с MagicOS 8 (Android 14)
-- Root-доступ
-- LSPosed (или совместимый фреймворк LibXposed API 102+)
+- Honor smartphone with MagicOS 8 (Android 14)
+- Root access
+- LSPosed (or a compatible LibXposed API 102+ framework)
 
-## Установка
+## Installation
 
-1. Установите APK
-2. Активируйте модуль в LSPosed
-3. Выберите область действия (scope):
-   - `com.android.settings` — Настройки
-   - `com.android.systemui` — шторка, статус-бар, скриншоты, AOD
-   - `com.hihonor.android.launcher` — рабочий стол, папки
+1. Install the APK
+2. Enable the module in LSPosed
+3. Select the scope:
+   - `com.android.settings` — Settings
+   - `com.android.systemui` — shade, status bar, screenshots, AOD
+   - `com.hihonor.android.launcher` — home screen, folders
    - `com.hihonor.aod` — Always-On Display
-4. Перезагрузите устройство (или перезапустите соответствующие процессы)
+4. Reboot the device (or restart the relevant processes)
 
-## Сборка
+## Building
 
 ```bash
 ./gradlew assembleDebug
 # APK: app/build/outputs/apk/debug/honor-tool-1-debug.apk
 ```
 
-Требуется Android SDK с NDK 27.3 и WSL/Linux окружение.
+Releases are built automatically by GitHub Actions on every tag (e.g. `v1.2.0`) — see [Actions](.github/workflows/release.yml).
 
-## Структура
+An Android SDK with NDK 27.3 and a Linux/WSL environment are required.
+
+## Project structure
 
 ```
 app/src/main/java/com/fantom3031/honortool/
-├── core/       # BaseHook, HookEntry, HookRegistry, настройки
-├── hooks/      # Все хуки (HookModules.kt — точка регистрации)
+├── core/       # BaseHook, HookEntry, HookRegistry, preferences
+├── hooks/      # All hooks (HookModules.kt — registration point)
 │   ├── settings/
 │   ├── systemui/
 │   ├── launcher/
 │   └── aod/
-├── doom/        # PureDOOM для «О телефоне»
-├── settings/    # Хранение настроек и изображений
-└── ui/          # Compose-интерфейс
+├── doom/        # PureDOOM for the About phone card
+├── settings/    # Settings and image storage
+└── ui/          # Compose UI
 ```
 
-## Добавление нового хука
+## Adding a new hook
 
-1. Создайте файл в `hooks/<приложение>/`
-2. Унаследуйте `BaseHook`
-3. Добавьте объект в `HookModules.all`
-4. Добавьте пакет в `module-scope.txt`
+1. Create a file in `hooks/<app>/`
+2. Extend `BaseHook`
+3. Add the object to `HookModules.all`
+4. Add the target package to `module-scope.txt`
 
-## Благодарности
+## Credits
 
-- [NothingTweaks](https://github.com/RevealedSoulEven/NothingTweaks) — вдохновение
-- [PureDOOM](https://github.com/Daivuk/PureDOOM) — DOOM в «О телефоне»
+- [NothingTweaks](https://github.com/RevealedSoulEven/NothingTweaks) — inspiration
+- [vivo-tool](https://github.com/skb8/vivo-tool) — the original vivo project Honor Tool grew out of
+- [PureDOOM](https://github.com/Daivuk/PureDOOM) — DOOM in the About phone card
 
-## Лицензия
+## License
 
 GPL-3.0
