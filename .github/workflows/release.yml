@@ -46,8 +46,9 @@ jobs:
       - name: Rename APK
         run: |
           VERSION=${GITHUB_REF_NAME#v}
-          mv app/build/outputs/apk/release/app-release-signed.apk \
-             app/build/outputs/apk/release/honor-tool-${VERSION}-signed.apk
+          cd app/build/outputs/apk/release
+          SIGNED=$(ls *-signed.apk | head -1)
+          mv "$SIGNED" "honor-tool-${VERSION}-signed.apk"
 
       - name: Create GitHub Release
         uses: softprops/action-gh-release@v2
